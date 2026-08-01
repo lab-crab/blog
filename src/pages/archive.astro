@@ -4,19 +4,19 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import {
-    getCategoryList,
-    getSortedPostsList,
-    getTagList,
+	getCategoryList,
+	getSortedPostsList,
+	getTagList,
 } from "../utils/content-utils";
 
 const sortedPostsList = await getSortedPostsList();
 
 const archivePosts = sortedPostsList.map((post) => ({
-    ...post,
-    data: {
-        ...post.data,
-        category: post.data.category ?? undefined,
-    },
+	...post,
+	data: {
+		...post.data,
+		category: post.data.category ?? undefined,
+	},
 }));
 
 const tagList = await getTagList();
